@@ -4,6 +4,10 @@
 
 with open('wages.txt', encoding = 'utf-8') as f:
     lines = f.readlines()
+    w=[]
     for l in lines:
-        if float(l.split(',')[1])<20000:
-            print(l.split(',')[0])
+        ls = l.split(',')
+        if float(ls[1])<20000:
+            print(ls[0])
+            w.append(ls[1].strip())
+    print(f'Средняя зарплата: {sum(map(float, w))/len(w)}')
